@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeadHunterParser", "HeadHunterParser\HeadHunterParser.csproj", "{C6E18FB2-0A3A-49F9-9978-59E7431EB32C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6E18FB2-0A3A-49F9-9978-59E7431EB32C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6E18FB2-0A3A-49F9-9978-59E7431EB32C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6E18FB2-0A3A-49F9-9978-59E7431EB32C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6E18FB2-0A3A-49F9-9978-59E7431EB32C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8DF6F68C-5435-4553-B82B-1D5DCC41BDEC}
+	EndGlobalSection
+EndGlobal
