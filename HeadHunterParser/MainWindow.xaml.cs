@@ -1,4 +1,4 @@
-﻿using HeadHunterParser.ContentArea;
+﻿using HeadHunterParser.General;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,43 +22,48 @@ namespace HeadHunterParser
     /// </summary>
     public partial class MainWindow : Window
     {
-        private int selectArea { get; set; }
-        private AreaWork AreaWork { get; set; }
+        private int _selectArea;
+        private readonly AreaWork _areaWork;
 
         public MainWindow()
         {
             InitializeComponent();
-            AreaWork = new AreaWork(selectArea, dataGrid, SearchInput.Text, stayImportantInfoCheck,
-                       experienceCheck, radioBtnWithBetweenLow, radioBtnNoExperience,
-                       radioBtnBetweenMiddle, radioBtnBetweenHigh);
-
+            _areaWork = new AreaWork(_selectArea,
+                                     SearchInput.Text,
+                                     dataGrid,
+                                     stayImportantInfoCheck,
+                                     experienceCheck,
+                                     radioBtnWithBetweenLow,
+                                     radioBtnNoExperience,
+                                     radioBtnBetweenMiddle,
+                                     radioBtnBetweenHigh);
         }
 
         private void SelectAreaButton_Click(object sender, RoutedEventArgs e)
         {
             listboxFirst.Items.Clear();
-            AreaWork.GetAreas(inputArea.Text, listBox: listboxFirst);
-           
+            _areaWork.GetAsync(inputArea.Text, listBox: listboxFirst);
+            
         }
 
         private void ListboxFirst_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            selectArea = listboxFirst.SelectedIndex;
-            areaLbl.Content = $"Регион {listboxFirst.SelectedItem.ToString()}";
+            _selectArea = listboxFirst.SelectedIndex;
+            areaLbl.Content = $"Регион {listboxFirst.SelectedItem}";
         }
 
         private void StartWorkButton_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(SearchInput.Text))
+            if (!string.IsNullOrWhiteSpace(SearchInput.Text))
             {
-                AreaWork.GetInfoArea(selectArea, dataGrid);
+                _areaWork.GetInfoAsync(_selectArea, dataGrid);
+                _areaWork.GetInfoWithExperienceAsync();
             }
-            else if (!string.IsNullOrWhiteSpace(SearchInput.Text))
+            else
             {
-              //  AreaWork.GetInfoAreaWitchSearchNewVerison();
-                AreaWork.GetInfoAreaWithExperience();
+                _areaWork.GetInfoWithExperienceAsync();
+                _areaWork.Dispose();
             }
-            
         }
 
         private void TestAddColumnBtn_Click(object sender, RoutedEventArgs e)

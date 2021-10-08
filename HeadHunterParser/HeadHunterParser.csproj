@@ -35,8 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -58,7 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ContentArea\AreaWork.cs" />
+    <Compile Include="General\AreaWork.cs" />
     <Compile Include="Model\Address.cs" />
     <Compile Include="Model\Area.cs" />
     <Compile Include="Model\Contacts.cs" />
@@ -69,8 +69,8 @@
     <Compile Include="Model\Salary.cs" />
     <Compile Include="Model\Snippet.cs" />
     <Compile Include="Model\Type.cs" />
-    <Compile Include="SearchArea\RootItemObject.cs" />
-    <Compile Include="SearchArea\RootModelItem.cs" />
+    <Compile Include="Serialize\RootItemObject.cs" />
+    <Compile Include="Serialize\RootModelItem.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -79,7 +79,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="SearchArea\Item.cs" />
+    <Compile Include="Serialize\Item.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
