@@ -12,6 +12,8 @@ x86/
 [Ll]og/
 [Ll]ogs/
 
+bin/Debug/
+
 # NuGet Packages
 *.nupkg
 # The packages folder can be ignored because of Package Restore
