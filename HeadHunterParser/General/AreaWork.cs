@@ -65,7 +65,7 @@ namespace HeadHunterParser.General
                 response.Close();
             }
 
-            Dictionary<string, string> pairs = new Dictionary<string, string>();
+            var pairs = new Dictionary<string, string>();
             RootItemObject area = JsonConvert.DeserializeObject<RootItemObject>(content);
             for (var i = 0; i < area.items.Count; i++)
             {

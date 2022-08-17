@@ -5,34 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HeadHunterParser"
         mc:Ignorable="d"
-        Title="MainWindow" Height="514" Width="879.346" WindowStartupLocation="CenterScreen">
+        Title="Head Hunter Parser" Height="535" Width="1036" WindowStartupLocation="CenterScreen">
     <Grid x:Name="grid" Margin="0,0,2,0">
         <Button x:Name="SelectAreaButton" Content="Выбрать область" HorizontalAlignment="Left" Margin="24,94,0,0" VerticalAlignment="Top" Width="110" Click="SelectAreaButton_Click" Height="29"/>
         <TextBox x:Name="inputArea" HorizontalAlignment="Left" Height="25" Margin="24,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" RenderTransformOrigin="0.039,0.696"/>
         <ListBox x:Name="listboxFirst" HorizontalAlignment="Left" Height="96" Margin="22,128,0,0" VerticalAlignment="Top" Width="208" SelectionChanged="ListboxFirst_SelectionChanged"/>
         <Label x:Name="areaLbl" Content="Область" HorizontalAlignment="Left" Margin="24,36,0,0" VerticalAlignment="Top" Height="28"/>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="274" Margin="402,10,0,0" VerticalAlignment="Top" Width="457"/>
-        <Button x:Name="StartWorkButton" Content="Показать" HorizontalAlignment="Left" Margin="24,283,0,0" VerticalAlignment="Top" Width="110" Click="StartWorkButton_Click" Height="29"/>
-        <Button x:Name="TestAddColumnBtn" Content="Test add columns" HorizontalAlignment="Left" Margin="264,64,0,0" VerticalAlignment="Top" Width="117" Height="26" Click="TestAddColumnBtn_Click"/>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="274" Margin="560,10,0,0" VerticalAlignment="Top" Width="464"/>
+        <Button x:Name="StartWorkButton" Content="Показать" HorizontalAlignment="Left" Margin="24,443,0,0" VerticalAlignment="Top" Width="110" Click="StartWorkButton_Click" Height="29"/>
+        <Button x:Name="TestAddColumnBtn" Content="Test add columns" HorizontalAlignment="Left" Margin="298,89,0,0" VerticalAlignment="Top" Width="118" Height="26" Click="TestAddColumnBtn_Click"/>
         <TextBox x:Name="SearchInput" HorizontalAlignment="Left" Height="23" Margin="23,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208"/>
         <Label x:Name="SearchLbl" Content="Напишите вакансию" HorizontalAlignment="Left" Margin="22,229,0,0" VerticalAlignment="Top"/>
-        <GroupBox Header="General" HorizontalAlignment="Left" Height="434" Margin="10,10,0,0" VerticalAlignment="Top" Width="246" FontWeight="Bold"/>
-        <Button x:Name="ClearGettingInfoButton" Content="Clear getting info" HorizontalAlignment="Left" Margin="261,345,0,0" VerticalAlignment="Top" Width="117" Height="27" Click="ClearGettingInfoButton_Click"/>
-        <ComboBox x:Name="SelectInfoClassBox" HorizontalAlignment="Left" Margin="261,36,0,0" VerticalAlignment="Top" Width="120">
+        <GroupBox Header="Основное" HorizontalAlignment="Left" Height="478" Margin="10,0,0,0" VerticalAlignment="Center" Width="262" FontWeight="Bold"/>
+        <Button x:Name="ClearGettingInfoButton" Content="Очистить информацию" HorizontalAlignment="Left" Margin="884,299,0,0" VerticalAlignment="Top" Width="140" Height="29" Click="ClearGettingInfoButton_Click"/>
+        <ComboBox x:Name="SelectInfoClassBox" HorizontalAlignment="Left" Margin="296,61,0,0" VerticalAlignment="Top" Width="120">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <CheckBox x:Name="firstCheckBox" Checked="FirstCheckBox_Checked" Unchecked="FirstCheckBox_Unchecked" Content="ss"></CheckBox>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <TextBox  x:Name="xxsa" HorizontalAlignment="Left" Height="23" Margin="264,425,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208"/>
-        <TextBlock x:Name="fag" Margin="264,388,303,72"  Text="{Binding ElementName=xxsa, Path=Background}"></TextBlock>
-        <CheckBox x:Name="stayImportantInfoCheck" Content="Оставить ЗП и должность" HorizontalAlignment="Left" Margin="437,360,0,0" VerticalAlignment="Top" Width="172" Height="23" IsChecked="True" />
-        <RadioButton x:Name="radioBtnNoExperience" Content="Без опыта" HorizontalAlignment="Left" Margin="264,260,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="radioBtnWithBetweenLow" Content="От 1 до 3" HorizontalAlignment="Left" Margin="264,280,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="experienceCheck" Content="Показать с опытом работы" HorizontalAlignment="Left" Margin="437,328,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="radioBtnBetweenMiddle" Content="От 3 до 6" HorizontalAlignment="Left" Margin="264,300,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="radioBtnBetweenHigh" Content="Более 6 лет" HorizontalAlignment="Left" Margin="264,320,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="stayImportantInfoCheck" Content="Оставить ЗП и должность" HorizontalAlignment="Left" Margin="22,323,0,0" VerticalAlignment="Top" Width="172" Height="23" IsChecked="True" />
+        <RadioButton x:Name="radioBtnNoExperience" Content="Без опыта" HorizontalAlignment="Left" Margin="22,350,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioBtnWithBetweenLow" Content="От 1 до 3" HorizontalAlignment="Left" Margin="22,370,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="experienceCheck" Content="Показать с опытом работы" HorizontalAlignment="Left" Margin="22,291,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioBtnBetweenMiddle" Content="От 3 до 6" HorizontalAlignment="Left" Margin="22,390,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="radioBtnBetweenHigh" Content="Более 6 лет" HorizontalAlignment="Left" Margin="22,410,0,0" VerticalAlignment="Top"/>
+        <GroupBox Header="Дополнительное" Margin="277,22,479,20" FontWeight="Bold"/>
 
 
 
