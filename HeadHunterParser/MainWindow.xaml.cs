@@ -7,9 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -54,16 +51,20 @@ namespace HeadHunterParser
 
         private void StartWorkButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(SearchInput.Text))
+            int nalogNumber;
+            bool isValidateNalog = int.TryParse(nalogTexb.Text, out nalogNumber);
+            if (!isValidateNalog && nalogNumber < 100 && !string.IsNullOrEmpty(nalogTexb.Text))
             {
-                _areaWork.GetInfoAsync(_selectArea, dataGrid);
-                _areaWork.GetInfoWithExperienceAsync();
+                MessageBox.Show("Уберите символы из строки Налог, и оставьте только число не больше 100");
             }
-            else
+            if (string.IsNullOrWhiteSpace(inputArea.Text))
             {
-                _areaWork.GetInfoWithExperienceAsync();
-                _areaWork.Dispose();
+                MessageBox.Show("Область не выбрана");
+                return;
             }
+            _areaWork.GetInfoAsync(_selectArea, dataGrid);
+            _areaWork.GetInfoWithExperienceAsync(nalogNumber);
+            _areaWork.Dispose();
         }
 
         private void TestAddColumnBtn_Click(object sender, RoutedEventArgs e)
