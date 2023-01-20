@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Windows;
 using System.Windows.Controls;
 using HeadHunterParser.Model;
 using HeadHunterParser.Serialize;
@@ -25,7 +26,6 @@ namespace HeadHunterParser.General
         private const string _userAgentName = "User-Agent";
         private const string _userAgentValue = "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36";
         private const string _currency = "RUB";
-        private const string _nalog = "13%";
 
         public AreaWork(int id,
                         string textInput,
@@ -67,6 +67,11 @@ namespace HeadHunterParser.General
 
             var pairs = new Dictionary<string, string>();
             RootItemObject area = JsonConvert.DeserializeObject<RootItemObject>(content);
+            if(area.items.Count <= 0)
+            {
+                MessageBox.Show("Area null");
+                return;
+            }
             for (var i = 0; i < area.items.Count; i++)
             {
                 pairs.Add(area.items[i].id, area.items[i].text);
@@ -80,6 +85,9 @@ namespace HeadHunterParser.General
 
         public async void GetInfoAsync(int id, DataGrid dataGrid)
         {
+            if(_areaCollectionId.Count <= 0)
+                return;
+
             string areaId = _areaCollectionId[id];
             var content = "";
             string url = $"https://api.hh.ru/vacancies?area={areaId}";
@@ -132,7 +140,7 @@ namespace HeadHunterParser.General
             _dataGrid.ItemsSource = area.Items;
         }
 
-        public async void GetInfoWitchSearchNewVerisonAsync()
+        public async void GetInfoWitchSearchNewVerisonAsync(int nalog)
         {
             string areaId = _areaCollectionId[_id];
             var content = "";
@@ -149,7 +157,7 @@ namespace HeadHunterParser.General
             }
             catch (Exception ex)
             {
-                System.Windows.MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString());
             }
 
             RootObjectInfoArea area = JsonConvert.DeserializeObject<RootObjectInfoArea>(content);
@@ -159,15 +167,22 @@ namespace HeadHunterParser.General
             var rootModelItem = new List<RootModelItem>();
             var calculateSalaryWithProcent = 0;
             var calulateSalaryFinal = 0;
+            if (area == null)
+            {
+                MessageBox.Show("Area null");
+                return;
+            }
             for (var i = 0; i < area.Items.Count; i++)
             {
-                if(area.Items[i].Salary?.from == null)
+                if (area.Items[i].Salary?.from == null ||
+                    area.Items[i].Employer?.name == null ||
+                    area.Items[i].Salary?.to == null)
                     continue;
 
                 collectionInfo.Add(area.Items[i].Employer?.name + " : " + area.Items[i].Salary?.from + " - " + area.Items[i].Salary?.to + " руб");
                 employers.Add(area.Items[i].Employer);
                 salarys.Add(area.Items[i].Salary);
-                calculateSalaryWithProcent = (int)area.Items[i].Salary?.from / 100 * 13;
+                calculateSalaryWithProcent = (int)area.Items[i].Salary?.from / 100 * nalog;
                 calulateSalaryFinal = (int)area.Items[i].Salary?.from - calculateSalaryWithProcent;
                 rootModelItem.Add(
                 new RootModelItem()
@@ -176,7 +191,7 @@ namespace HeadHunterParser.General
                     froms = area.Items[i].Salary?.from,
                     to = area.Items[i].Salary?.to,
                     currency = "RUB",
-                    nalog = "13%",
+                    nalog = $"{nalog}%",
                     finalSalary = calulateSalaryFinal.ToString("00,000")
                 });
             }
@@ -186,7 +201,7 @@ namespace HeadHunterParser.General
                 _dataGrid.ItemsSource = rootModelItem;
             }
         }
-        public async void GetInfoWithExperienceAsync()
+        public async void GetInfoWithExperienceAsync(int nalog)
         {
             if (_experienceCheck.IsChecked == false)
                 return;
@@ -215,6 +230,11 @@ namespace HeadHunterParser.General
                 url = $"https://api.hh.ru/vacancies?area={areaId}&text={_textInput}&experience=moreThan6";
                 selectedWorkExperience = "Более 6 лет";
             }
+            if(url.Length <= 0)
+            {
+                MessageBox.Show("Опыт работы не выбран");
+                return;
+            }
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Add(_userAgentName, _userAgentValue);
             HttpResponseMessage response;
@@ -227,7 +247,7 @@ namespace HeadHunterParser.General
             }
             catch (Exception ex)
             {
-                System.Windows.MessageBox.Show(ex.ToString());
+               MessageBox.Show(ex.ToString());
             }
 
             RootObjectInfoArea area = JsonConvert.DeserializeObject<RootObjectInfoArea>(content);
@@ -237,15 +257,22 @@ namespace HeadHunterParser.General
             var rootModelItem = new List<RootModelItem>();
             var calculateSalaryWithProcent = 0;
             var calulateSalaryFinal = 0;
+            if(area == null)
+            {
+                MessageBox.Show("Area null");
+                return;
+            }
             for (var i = 0; i < area.Items.Count; i++)
             {
-                if (area.Items[i].Salary?.from == null)
+                if (area.Items[i].Salary?.from == null || 
+                    area.Items[i].Employer?.name == null || 
+                    area.Items[i].Salary?.to == null)
                     continue;
 
                 collectionInfo.Add(area.Items[i].Employer?.name + " : " + area.Items[i].Salary?.from + " - " + area.Items[i].Salary?.to + " руб");
                 employers.Add(area.Items[i].Employer);
                 salarys.Add(area.Items[i].Salary);
-                calculateSalaryWithProcent = (int)area.Items[i].Salary?.from / 100 * 13;
+                calculateSalaryWithProcent = (int)area.Items[i].Salary?.from / 100 * nalog;
                 calulateSalaryFinal = (int)area.Items[i].Salary?.from - calculateSalaryWithProcent;
                 rootModelItem.Add(
                 new RootModelItem()
@@ -254,7 +281,7 @@ namespace HeadHunterParser.General
                     froms = area.Items[i].Salary?.from,
                     to = area.Items[i].Salary?.to,
                     currency = _currency,
-                    nalog = _nalog,
+                    nalog = $"{nalog}%",
                     finalSalary = calulateSalaryFinal.ToString("00,000"),
                     experienceInfo = selectedWorkExperience
                 });

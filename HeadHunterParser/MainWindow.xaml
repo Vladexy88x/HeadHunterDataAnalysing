@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HeadHunterParser"
         mc:Ignorable="d"
-        Title="Head Hunter Parser" Height="624" Width="1036" WindowStartupLocation="CenterScreen">
-    <Grid x:Name="grid" Margin="0,0,2,0">
+        Title="Head Hunter Parser" Height="732" Width="1063" WindowStartupLocation="CenterScreen">
+    <Grid x:Name="grid" Margin="0,0,2,12">
         <Button x:Name="SelectAreaButton" Content="Выбрать область" HorizontalAlignment="Left" Margin="24,94,0,0" VerticalAlignment="Top" Width="110" Click="SelectAreaButton_Click" Height="29"/>
         <TextBox x:Name="inputArea" HorizontalAlignment="Left" Height="25" Margin="24,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208" RenderTransformOrigin="0.039,0.696"/>
         <ListBox x:Name="listboxFirst" HorizontalAlignment="Left" Height="96" Margin="22,128,0,0" VerticalAlignment="Top" Width="208" SelectionChanged="ListboxFirst_SelectionChanged"/>
         <Label x:Name="areaLbl" Content="Область" HorizontalAlignment="Left" Margin="24,36,0,0" VerticalAlignment="Top" Height="28"/>
         <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="274" Margin="560,10,0,0" VerticalAlignment="Top" Width="464"/>
-        <Button x:Name="StartWorkButton" Content="Показать" HorizontalAlignment="Left" Margin="24,563,0,0" VerticalAlignment="Top" Width="110" Click="StartWorkButton_Click" Height="29"/>
+        <Button x:Name="StartWorkButton" Content="Показать" HorizontalAlignment="Left" Margin="16,616,0,0" VerticalAlignment="Top" Width="110" Click="StartWorkButton_Click" Height="29"/>
         <Button x:Name="TestAddColumnBtn" Content="Test add columns" HorizontalAlignment="Left" Margin="298,89,0,0" VerticalAlignment="Top" Width="118" Height="26" Click="TestAddColumnBtn_Click"/>
         <TextBox x:Name="SearchInput" HorizontalAlignment="Left" Height="23" Margin="23,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="208"/>
         <Label x:Name="SearchLbl" Content="Напишите вакансию" HorizontalAlignment="Left" Margin="22,229,0,0" VerticalAlignment="Top"/>
-        <GroupBox Header="Основное" HorizontalAlignment="Left" Height="578" Margin="10,22,0,0" VerticalAlignment="Top" Width="262" FontWeight="Bold"/>
+        <GroupBox Header="Основное" HorizontalAlignment="Left" Width="262" FontWeight="Bold" Margin="3,21,0,21"/>
         <Button x:Name="ClearGettingInfoButton" Content="Очистить информацию" HorizontalAlignment="Left" Margin="884,299,0,0" VerticalAlignment="Top" Width="140" Height="29" Click="ClearGettingInfoButton_Click"/>
         <ComboBox x:Name="SelectInfoClassBox" HorizontalAlignment="Left" Margin="296,61,0,0" VerticalAlignment="Top" Width="120">
             <ComboBox.ItemTemplate>
@@ -31,13 +31,15 @@
         <CheckBox x:Name="experienceCheck" Content="Показать с опытом работы" HorizontalAlignment="Left" Margin="22,291,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="radioBtnBetweenMiddle" Content="От 3 до 6" HorizontalAlignment="Left" Margin="22,390,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="radioBtnBetweenHigh" Content="Более 6 лет" HorizontalAlignment="Left" Margin="22,410,0,0" VerticalAlignment="Top"/>
-        <GroupBox Header="Дополнительное" Margin="277,22,479,20" FontWeight="Bold"/>
+        <GroupBox Header="Дополнительное" Margin="277,22,517,20" FontWeight="Bold"/>
         <Label Content="Тип занятости" HorizontalAlignment="Left" Margin="21,425,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="fullEmploymentChkb" Content="Полная занятость" HorizontalAlignment="Left" Margin="23,453,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="partEmploymentChkb" Content="Частичная занятость" HorizontalAlignment="Left" Margin="23,473,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="projectEmploymentChkb" Content="Проектная работа" HorizontalAlignment="Left" Margin="23,495,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="volunteerEmploymentChkb" Content="Волонтерство" HorizontalAlignment="Left" Margin="23,516,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="probationEmploymentChkb" Content="Стажировка" HorizontalAlignment="Left" Margin="23,536,0,0" VerticalAlignment="Top"/>
+        <Label Content="Налог %" HorizontalAlignment="Left" Margin="19,556,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nalogTexb" HorizontalAlignment="Left" Margin="20,582,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"  Height="25" Width="120"/>
 
 
     </Grid>
