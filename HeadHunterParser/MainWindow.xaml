@@ -39,8 +39,6 @@
         <CheckBox x:Name="volunteerEmploymentChkb" Content="Волонтерство" HorizontalAlignment="Left" Margin="23,516,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="probationEmploymentChkb" Content="Стажировка" HorizontalAlignment="Left" Margin="23,536,0,0" VerticalAlignment="Top"/>
         <Label Content="Налог %" HorizontalAlignment="Left" Margin="19,556,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="nalogTexb" HorizontalAlignment="Left" Margin="20,582,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"  Height="25" Width="120"/>
-
-
+        <TextBox x:Name="taxTexb" HorizontalAlignment="Left" Margin="20,582,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"  Height="25" Width="120"/>
     </Grid>
 </Window>
