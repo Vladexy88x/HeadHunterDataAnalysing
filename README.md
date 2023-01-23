@@ -1,2 +1,15 @@
-# HeadHunterDataAnalysing
+<div align="center">
+<h2>HeadHunterDataAnalysing</h2>
+</div>
+
+## Обзор
 We use, work and display the site hh.ru using API.
+
+## Функциональность
+
+* Кроссплатформенное решение: Linux, Windows
+* Поиск вакансии
+* Поиск с фильтром занятости
+* Поиск с фильтром опыта работы
+* Возможность показа только с опытом
+* Есть возможность рассчитать зарплату после вычета налога
