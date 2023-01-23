@@ -7,9 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace HeadHunterParser
@@ -40,7 +37,6 @@ namespace HeadHunterParser
         {
             listboxFirst.Items.Clear();
             _areaWork.GetAsync(inputArea.Text, listBox: listboxFirst);
-            
         }
 
         private void ListboxFirst_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -51,9 +47,9 @@ namespace HeadHunterParser
 
         private void StartWorkButton_Click(object sender, RoutedEventArgs e)
         {
-            int nalogNumber;
-            bool isValidateNalog = int.TryParse(nalogTexb.Text, out nalogNumber);
-            if (!isValidateNalog && nalogNumber < 100 && !string.IsNullOrEmpty(nalogTexb.Text))
+            int taxNumber;
+            bool isValidateNalog = int.TryParse(taxTexb.Text, out taxNumber);
+            if (!isValidateNalog && taxNumber < 100 && !string.IsNullOrEmpty(taxTexb.Text))
             {
                 MessageBox.Show("Уберите символы из строки Налог, и оставьте только число не больше 100");
             }
@@ -63,7 +59,7 @@ namespace HeadHunterParser
                 return;
             }
             _areaWork.GetInfoAsync(_selectArea, dataGrid);
-            _areaWork.GetInfoWithExperienceAsync(nalogNumber);
+            _areaWork.GetInfoWithExperienceAsync(taxNumber);
             _areaWork.Dispose();
         }
 
