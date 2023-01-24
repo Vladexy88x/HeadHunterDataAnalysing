@@ -1,6 +1,6 @@
 namespace HeadHunterParser.Serialize
 {
-    class Item
+    public class Item
     {
          public string id { get; set; }
          public string text { get; set;}

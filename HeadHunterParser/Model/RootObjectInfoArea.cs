@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace HeadHunterParser.Model
 {
-    class RootObjectInfoArea
+    public class RootObjectInfoArea
     {
         public List<Item> Items { get; set; }
         public string alternate_url { get; set; }

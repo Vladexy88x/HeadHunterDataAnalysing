@@ -69,6 +69,9 @@
     <Compile Include="Model\Salary.cs" />
     <Compile Include="Model\Snippet.cs" />
     <Compile Include="Model\Type.cs" />
+    <Compile Include="Modules\HttpService.cs" />
+    <Compile Include="Modules\JsonParser.cs" />
+    <Compile Include="Modules\UiUpdater.cs" />
     <Compile Include="Serialize\RootItemObject.cs" />
     <Compile Include="Serialize\RootModelItem.cs" />
     <Page Include="MainWindow.xaml">

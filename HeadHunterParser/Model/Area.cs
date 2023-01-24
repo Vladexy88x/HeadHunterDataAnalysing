@@ -1,6 +1,6 @@
 namespace HeadHunterParser.Model
 {
-    class Area
+    public class Area
     {
         public string id { get; set; }
         public string name { get; set; }
