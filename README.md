@@ -2,6 +2,8 @@
 <h2>HeadHunterDataAnalysing</h2>
 </div>
 
+Russian | [English](./README-ENG.md)
+
 ## Обзор
 Это настольное приложение, которое использует api.hh.ru для более удобного и настраиваемого поиска работы.
 
