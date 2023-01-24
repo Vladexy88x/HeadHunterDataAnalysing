@@ -1,6 +1,6 @@
 namespace HeadHunterParser.Model
 {
-    class Salary
+    public class Salary
     {
         private string currency { get; set; }
         public int? from { get; set; }

@@ -22,14 +22,9 @@ namespace HeadHunterParser
         public MainWindow()
         {
             InitializeComponent();
-            _areaWork = new AreaWork(_selectArea,
-                                     SearchInput.Text,
-                                     dataGrid,
-                                     stayImportantInfoCheck,
-                                     experienceCheck,
-                                     radioBtnWithBetweenLow,
-                                     radioBtnNoExperience,
-                                     radioBtnBetweenMiddle,
+            _areaWork = new AreaWork(_selectArea, SearchInput.Text, dataGrid, stayImportantInfoCheck, 
+                                     experienceCheck, radioBtnWithBetweenLow,
+                                     radioBtnNoExperience,radioBtnBetweenMiddle,
                                      radioBtnBetweenHigh);
         }
 
@@ -45,7 +40,7 @@ namespace HeadHunterParser
             areaLbl.Content = $"Регион {listboxFirst.SelectedItem}";
         }
 
-        private void StartWorkButton_Click(object sender, RoutedEventArgs e)
+        private async void StartWorkButton_Click(object sender, RoutedEventArgs e)
         {
             int taxNumber;
             bool isValidateNalog = int.TryParse(taxTexb.Text, out taxNumber);
@@ -58,14 +53,13 @@ namespace HeadHunterParser
                 MessageBox.Show("Область не выбрана");
                 return;
             }
-            _areaWork.GetInfoAsync(_selectArea, dataGrid);
-            _areaWork.GetInfoWithExperienceAsync(taxNumber);
-            _areaWork.Dispose();
+            await _areaWork.GetInfoAsync(_selectArea, dataGrid, taxNumber);
+            await _areaWork.GetInfoWithExperienceAsync(taxNumber);
         }
 
         private void TestAddColumnBtn_Click(object sender, RoutedEventArgs e)
         {
-          
+            _areaWork.Dispose();
         }
 
         private void FirstCheckBox_Checked(object sender, RoutedEventArgs e)

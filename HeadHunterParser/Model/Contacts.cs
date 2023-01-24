@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace HeadHunterParser.Model
 {
-    class Contacts
+    public class Contacts
     {
         public string email { get; set; }
         public string name { get; set; }

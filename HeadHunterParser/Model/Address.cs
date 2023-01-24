@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace HeadHunterParser.Model
 {
-    class Address
+    public class Address
     {
         public string building { get; set; }
         public string city { get; set; }

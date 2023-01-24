@@ -1,6 +1,6 @@
 namespace HeadHunterParser.Model
 {
-    class Employer
+    public class Employer
     {
         private string alternate_url { get; set; }
         private string id { get; set; }

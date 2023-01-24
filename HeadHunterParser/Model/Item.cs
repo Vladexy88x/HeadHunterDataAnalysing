@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace HeadHunterParser.Model
 {
-    class Item
+    public class Item
     {
         public Address Address { get; set; }
         public string alternate_url { get; set; }
