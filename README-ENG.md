@@ -5,6 +5,7 @@
 [English](./README.md) | Russian
 
 ## Overview
+![Image](https://github.com/vladexysys88/HeadHunterDataAnalysing/raw/development/assets/hhp-first.jpg)
 This is a desktop application that uses api.hh.ru to make your job search more convenient and customizable.
 
 ## Functionality
