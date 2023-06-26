@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace HeadHunterParser.Model
+namespace HeadHunterParser.Models
 {
     public class Address
     {

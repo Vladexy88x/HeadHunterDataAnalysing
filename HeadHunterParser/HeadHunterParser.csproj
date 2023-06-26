@@ -59,16 +59,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="General\AreaWork.cs" />
-    <Compile Include="Model\Address.cs" />
-    <Compile Include="Model\Area.cs" />
-    <Compile Include="Model\Contacts.cs" />
-    <Compile Include="Model\Employer.cs" />
-    <Compile Include="Model\Item.cs" />
-    <Compile Include="Model\LogoUrls.cs" />
-    <Compile Include="Model\RootObjectInfoArea.cs" />
-    <Compile Include="Model\Salary.cs" />
-    <Compile Include="Model\Snippet.cs" />
-    <Compile Include="Model\Type.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\Area.cs" />
+    <Compile Include="Models\Contacts.cs" />
+    <Compile Include="Models\Employer.cs" />
+    <Compile Include="Models\FormModel.cs" />
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\LogoUrls.cs" />
+    <Compile Include="Models\RootObjectInfoArea.cs" />
+    <Compile Include="Models\Salary.cs" />
+    <Compile Include="Models\Snippet.cs" />
+    <Compile Include="Models\Type.cs" />
     <Compile Include="Modules\HttpService.cs" />
     <Compile Include="Modules\JsonParser.cs" />
     <Compile Include="Modules\UiUpdater.cs" />

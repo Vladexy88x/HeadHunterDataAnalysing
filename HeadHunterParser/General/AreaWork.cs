@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using HeadHunterParser.Model;
+using HeadHunterParser.Models;
 using HeadHunterParser.Modules;
 using HeadHunterParser.Serialize;
 
@@ -24,24 +24,22 @@ namespace HeadHunterParser.General
         private const string _userAgentValue = "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36";
         private const string _currency = "RUB";
 
-        private HttpService _httpService;
-        private JsonParser _jsonParser;
-        private UiUpdater _uiUpdater;
+        private readonly HttpService _httpService;
+        private readonly JsonParser _jsonParser;
+        private readonly UiUpdater _uiUpdater;
 
-        public AreaWork(int id, string textInput, DataGrid dataGrid, CheckBox stayImportantInfoCheck,
-                        CheckBox experienceCheck, RadioButton radioButtonBetweenLow, RadioButton radioButtonNoExperience,
-                        RadioButton radioButtonBetweenMiddle, RadioButton radioButtonBetweenHigh)
+        public AreaWork(FormModel formModel)
         {
             _areaCollectionId = new List<string>();
-            this._id = id;
-            this._dataGrid = dataGrid;
-            this._textInput = textInput;
-            this._stayImportantInfoCheck = stayImportantInfoCheck;
-            this._radioButtonNoExperience = radioButtonNoExperience;
-            this._experienceCheck = experienceCheck;
-            this._radioButtonBetweenLow = radioButtonBetweenLow;
-            this._radioButtonBetweenMiddle = radioButtonBetweenMiddle;
-            this._radioButtonBetweenHigh = radioButtonBetweenHigh;
+            _id = formModel.Id;
+            _dataGrid = formModel.DataGrid;
+            _textInput = formModel.TextInput;
+            _stayImportantInfoCheck = formModel.StayImportantInfoCheck;
+            _radioButtonNoExperience = formModel.RadioButtonNoExperience;
+            _experienceCheck = formModel.ExperienceCheck;
+            _radioButtonBetweenLow = formModel.RadioButtonBetweenLow;
+            _radioButtonBetweenMiddle = formModel.RadioButtonBetweenMiddle;
+            _radioButtonBetweenHigh = formModel.RadioButtonBetweenHigh;
 
             _httpService = new HttpService(_userAgentValue);
             _jsonParser = new JsonParser();

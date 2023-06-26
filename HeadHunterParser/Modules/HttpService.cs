@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace HeadHunterParser.Modules
 {
@@ -23,12 +24,20 @@ namespace HeadHunterParser.Modules
             HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
             request.Method = "GET";
             request.UserAgent = _userAgentValue;
-            using (HttpWebResponse response = await request.GetResponseAsync() as HttpWebResponse)
+            try
             {
-                using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                using (HttpWebResponse response = await request.GetResponseAsync() as HttpWebResponse)
                 {
-                    content = await reader.ReadToEndAsync();
+                    using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                    {
+                        content = await reader.ReadToEndAsync();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
             }
             return content;
         }

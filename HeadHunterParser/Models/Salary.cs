@@ -1,5 +1,5 @@
-namespace HeadHunterParser.Model
-{
+namespace HeadHunterParser.Models
+{ 
     public class Salary
     {
         private string currency { get; set; }
