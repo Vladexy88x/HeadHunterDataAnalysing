@@ -1,4 +1,4 @@
-﻿using HeadHunterParser.Model;
+﻿using HeadHunterParser.Models;
 using HeadHunterParser.Serialize;
 using Newtonsoft.Json;
 using System;

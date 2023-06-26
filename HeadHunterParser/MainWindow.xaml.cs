@@ -1,4 +1,5 @@
 ﻿using HeadHunterParser.General;
+using HeadHunterParser.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,10 +23,19 @@ namespace HeadHunterParser
         public MainWindow()
         {
             InitializeComponent();
-            _areaWork = new AreaWork(_selectArea, SearchInput.Text, dataGrid, stayImportantInfoCheck, 
-                                     experienceCheck, radioBtnWithBetweenLow,
-                                     radioBtnNoExperience,radioBtnBetweenMiddle,
-                                     radioBtnBetweenHigh);
+            var formModel = new FormModel
+            {
+                Id = _selectArea,
+                TextInput = SearchInput.Text,
+                DataGrid = dataGrid,
+                StayImportantInfoCheck = stayImportantInfoCheck,
+                ExperienceCheck = experienceCheck,
+                RadioButtonBetweenLow = radioBtnWithBetweenLow,
+                RadioButtonNoExperience = radioBtnNoExperience,
+                RadioButtonBetweenMiddle = radioBtnNoExperience,
+                RadioButtonBetweenHigh = radioBtnBetweenHigh
+            };
+            _areaWork = new AreaWork(formModel);
         }
 
         private void SelectAreaButton_Click(object sender, RoutedEventArgs e)
